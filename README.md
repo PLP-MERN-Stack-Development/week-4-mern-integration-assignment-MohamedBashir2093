@@ -1,79 +1,171 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=19926846&assignment_repo_type=AssignmentRepo)
-# MERN Stack Integration Assignment
+# MERN Stack Blog Application
 
-This assignment focuses on building a full-stack MERN (MongoDB, Express.js, React.js, Node.js) application that demonstrates seamless integration between front-end and back-end components.
+A full-stack blog application built using **MongoDB**, **Express.js**, **React.js**, and **Node.js (MERN)**. It allows users to register, log in, create, edit, delete, and view blog posts, as well as categorize them. The app features full CRUD functionality, user authentication, and a clean, responsive UI.
 
-## Assignment Overview
+---
 
-You will build a blog application with the following features:
-1. RESTful API with Express.js and MongoDB
-2. React front-end with component architecture
-3. Full CRUD functionality for blog posts
-4. User authentication and authorization
-5. Advanced features like image uploads and comments
+## 📝 Project Overview
 
-## Project Structure
+This project is a simple but powerful blog system with:
 
-```
-mern-blog/
-├── client/                 # React front-end
-│   ├── public/             # Static files
-│   ├── src/                # React source code
-│   │   ├── components/     # Reusable components
-│   │   ├── pages/          # Page components
-│   │   ├── hooks/          # Custom React hooks
-│   │   ├── services/       # API services
-│   │   ├── context/        # React context providers
-│   │   └── App.jsx         # Main application component
-│   └── package.json        # Client dependencies
-├── server/                 # Express.js back-end
-│   ├── config/             # Configuration files
-│   ├── controllers/        # Route controllers
-│   ├── models/             # Mongoose models
-│   ├── routes/             # API routes
-│   ├── middleware/         # Custom middleware
-│   ├── utils/              # Utility functions
-│   ├── server.js           # Main server file
-│   └── package.json        # Server dependencies
-└── README.md               # Project documentation
-```
+- Full **CRUD** operations for blog posts
+- User **authentication** (register, login, logout)
+- Categorization of posts
+- Protected routes (only authors can edit/delete their own posts)
+- Error handling and input validation
+- Responsive and clean UI built with **Tailwind CSS**
+- Fully RESTful API
+- Front-end and back-end integration using Axios and Vite
 
-## Getting Started
+---
 
-1. Accept the GitHub Classroom assignment invitation
-2. Clone your personal repository that was created by GitHub Classroom
-3. Follow the setup instructions in the `Week4-Assignment.md` file
-4. Complete the tasks outlined in the assignment
+## ⚙️ Setup Instructions
 
-## Files Included
+### 🔐 Prerequisites
 
-- `Week4-Assignment.md`: Detailed assignment instructions
-- Starter code for both client and server:
-  - Basic project structure
-  - Configuration files
-  - Sample models and components
-
-## Requirements
-
-- Node.js (v18 or higher)
-- MongoDB (local installation or Atlas account)
-- npm or yarn
+- Node.js & npm
+- MongoDB (local or Atlas)
 - Git
 
-## Submission
+---
 
-Your work will be automatically submitted when you push to your GitHub Classroom repository. Make sure to:
+### 🚀 Clone the Project
 
-1. Complete both the client and server portions of the application
-2. Implement all required API endpoints
-3. Create the necessary React components and hooks
-4. Document your API and setup process in the README.md
-5. Include screenshots of your working application
+```bash
+git clone https://github.com/PLP-MERN-Stack-Development/week-4-mern-integration-assignment-MohamedBashir2093.git
+cd week-4-mern-integration-assignment
+````
 
-## Resources
+---
 
-- [MongoDB Documentation](https://docs.mongodb.com/)
-- [Express.js Documentation](https://expressjs.com/)
-- [React Documentation](https://react.dev/)
-- [Node.js Documentation](https://nodejs.org/en/docs/)
-- [Mongoose Documentation](https://mongoosejs.com/docs/) 
+### 📁 Project Structure
+
+```
+week-4-mern-integration-assignment/
+│
+├── client/       # React frontend
+├── server/       # Express + MongoDB backend
+├── README.md
+```
+
+---
+
+### 📦 Backend Setup
+
+```bash
+cd server
+npm install
+```
+
+Create a `.env` file in the `server/` directory (see `.env.example`):
+
+```env
+PORT=5000
+MONGO_URI=mongodb://localhost:27017/mernblog
+JWT_SECRET=your_jwt_secret
+```
+
+Then run the server:
+
+```bash
+npm run dev
+```
+
+---
+
+### 💻 Frontend Setup
+
+```bash
+cd client
+npm install
+```
+
+Start the React app:
+
+```bash
+npm run dev
+```
+
+---
+
+🚀 **Live Demo**: [https://your-app-client-url.vercel.app](https://your-app-client-url.vercel.app)
+🌐 **API Server**: [https://your-api.render.com](https://your-api.render.com)
+🚀 **Live App**: [https://mern-blog-app.onrender.com](https://mern-blog-app.onrender.com)
+
+
+## 📡 API Documentation
+
+All routes are prefixed with `/api`.
+
+### 🔒 Authentication
+
+| Method | Endpoint         | Description       |
+| ------ | ---------------- | ----------------- |
+| POST   | `/auth/register` | Register user     |
+| POST   | `/auth/login`    | Login & get token |
+
+### 📝 Posts
+
+| Method | Endpoint     | Description                |
+| ------ | ------------ | -------------------------- |
+| GET    | `/posts`     | Get all posts              |
+| GET    | `/posts/:id` | Get single post            |
+| POST   | `/posts`     | Create post (auth only)    |
+| PUT    | `/posts/:id` | Update post (auth + owner) |
+| DELETE | `/posts/:id` | Delete post (auth + owner) |
+
+### 📁 Categories
+
+| Method | Endpoint      | Description        |
+| ------ | ------------- | ------------------ |
+| GET    | `/categories` | Get all categories |
+| POST   | `/categories` | Create category    |
+
+> ⚠️ All protected routes require a Bearer token in the `Authorization` header.
+
+---
+
+## ✅ Features Implemented
+
+* [x] RESTful API using Express and Mongoose
+* [x] React front-end with Vite
+* [x] User authentication with JWT
+* [x] CRUD for blog posts
+* [x] Protected routes (edit/delete only by post owner)
+* [x] Category management
+* [x] Form validation and error handling
+* [x] Axios with global token injection
+* [x] Responsive design with Tailwind CSS
+* [x] Clean codebase with reusable components and API services
+* [x] `.env.example` for both client and server
+* [x] Navigation and layout with React Router
+* [x] Screenshots included
+
+---
+
+## 🖼 Screenshots
+
+### 📄 Home Page
+
+![Home Page](./screenshots/Screenshot%202025-07-13%20130222.png)
+
+### ✍️ Create Post
+
+![Create Post](./screenshots/Screenshot%202025-07-13%20130922.png)
+
+### 🔐 Login
+
+![Login Page](./screenshots/Screenshot%202025-07-13%20131040.png)
+
+
+
+## 👨‍💻 Author
+
+ Mohamed Bashir Hamud
+
+---
+
+## 📃 License
+
+This project is licensed for academic use and learning purposes.
+
