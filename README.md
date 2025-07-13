@@ -88,9 +88,7 @@ npm run dev
 
 ---
 
-🚀 **Live Demo**: [https://your-app-client-url.vercel.app](https://your-app-client-url.vercel.app)
-🌐 **API Server**: [https://your-api.render.com](https://your-api.render.com)
-🚀 **Live App**: [https://mern-blog-app.onrender.com](https://mern-blog-app.onrender.com)
+
 
 
 ## 📡 API Documentation
